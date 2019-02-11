@@ -31,4 +31,16 @@ app.post('/login', function (req, res){
   }
 });
 
+app.get('/api/login/:user/:pass', function (req, res){
+  for(var item in users){
+    if(item===req.params.user && users[item]===req.params.pass){
+      var msgOK = {"status":"OK"};
+      res.send(JSON.stringify(msgOK));
+      return;
+    }
+  }
+  var msgFail = {"status":"ERROR"};
+  res.send(JSON.stringify(msgFail));
+});
+
 app.listen(4000, () => console.log('Example app listening on port 4000!'));
