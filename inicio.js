@@ -8,7 +8,7 @@ var users = {
   "david" : "123",
   "adri" : "456",
   "marc" : "789",
-  "jaime" : "101"
+  "roger" : "101"
 };
 
 app.set('view engine', 'ejs');
@@ -43,4 +43,4 @@ app.get('/api/login/:user/:pass', function (req, res){
   res.send(JSON.stringify(msgFail));
 });
 
-app.listen(4000, () => console.log('Example app listening on port 4000!'));
+app.listen(process.env.PORT, () => console.log('Example app listening on port 4000!'));
