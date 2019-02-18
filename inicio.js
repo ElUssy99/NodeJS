@@ -12,7 +12,7 @@ var users = {
 };
 
 app.set('view engine', 'ejs');
-
+  a
 app.get('/', (req, res) => {
   res.render('index');
 });
@@ -26,6 +26,7 @@ app.post('/login', function (req, res){
     if(item == req.body.usuario && users[item] == req.body.contra){
       res.send("El usuario es correcto. Hola " + req.body.usuario + ".");
       return;
+      // sadfsafuihi
     }
     res.send("El usuario es incorrecto.");
   }
