@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Elements in a List</title>
+    <style type = "text/css">
+      ol {
+        background-colo: orange;
+      }
+      li:hover {
+        background-colo: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!---->
+    <!--Elementos de la pagina-->
+    <!--Lista con varios elementos de ejemplo-->
+    <ol id = "list">
+      <li>First element</li>
+      <li>Second element</li>
+    </ol>
+    <!--Input para introducir texto (no le pongas un nombre[name=...], ponle un id[id=...])-->
+    <input type="text" id="texto"><br>
+    <!--Boton con metodo de la funcion llamada-->
+    <button onclick="addElem()">Add element</button>
+    <button onclick="delList()">Delete element</button><br>
+
+    <!-- Funciones de la pagina -->
+    <script type="text/javascript">
+      function addElem(){
+        var elemento = document.getElementById("texto");
+        var ol = document.getElementById("list");
+        var li = document.createElement("li");
+        var button = document.createElement('button');
+        button.innerText = "Delete";
+        button.onclick = "delElem";
+        li.setAttribute('id', elemento.value);
+        li.appendChild(document.createTextNode(elemento.value));
+        li.appendChild(button);
+        ol.appendChild(li);
+      }
+      function delElem(){
+        var ol = document.getElementById("list");
+        var elemento = document.getElementById(li).style.position;
+        ol.remove(ol);
+      }
+      function delList(){
+        var ol = document.getElementById("list");
+        var item = document.getElementById(ol);
+        ol.remove(item);
+      }
+    </script>
+  </body>
+</html>
