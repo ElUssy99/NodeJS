@@ -24,7 +24,8 @@
     <input type="text" id="texto"><br>
     <!--Boton con metodo de la funcion llamada-->
     <button onclick="addElem()">Add element</button>
-    <button onclick="delList()">Delete element</button><br>
+    <button onclick="storeList()">Storage</button><br>
+    <button onclick="mostrarDatos()">Show data</button><br>
 
     <!-- Funciones de la pagina -->
     <script type="text/javascript">
@@ -32,12 +33,12 @@
         var elemento = document.getElementById("texto");
         var ol = document.getElementById("list");
         var li = document.createElement("li");
-        var button = document.createElement('button');
-        button.innerText = "Delete";
-        button.onclick = "delElem";
+        //var button = document.createElement('button');
+        //button.innerText = "Delete";
+        //button.onclick = "delElem";
         li.setAttribute('id', elemento.value);
         li.appendChild(document.createTextNode(elemento.value));
-        li.appendChild(button);
+        //li.appendChild(button);
         ol.appendChild(li);
       }
       function delElem(){
@@ -48,10 +49,15 @@
         // var list = document.getElementById("list");
         // list.removeChild(list.childNode[li.getElementById("list")]);
       }
-      function delList(){
+      function storeList(){
         var ol = document.getElementById("list");
-        var item = document.getElementById(ol);
-        ol.remove(item);
+        for (i = 0; i < ol; i++){
+          localStorage.setItem('item', ol[i]);
+        }
+      }
+      function mostrarDatos(){
+        var dato = localStorage.getItem('Item 1');
+        alert(dato);
       }
     </script>
   </body>
