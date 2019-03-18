@@ -42,29 +42,25 @@
         //li.appendChild(button);
         ol.appendChild(li);
       }
-      function delElem(){
-        var ol = document.getElementById("list");
-        var elemento = document.getElementById(li).style.position;
-        ol.remove(ol);
+      //function delElem(){
+        //var ol = document.getElementById("list");
+        //var elemento = document.getElementById(li).style.position;
+        //ol.remove(ol);
 
         // var list = document.getElementById("list");
         // list.removeChild(list.childNode[li.getElementById("list")]);
-      }
+      //}
       function storeList(){
         var count = 1;
         var listaLS = document.getElementById("list").getElementsByTagName("li");
-        var arrayTxt = [];
-
-        for (var i = 0; i < listaSL.length; i++) {
-          arrayTxt[arrayTxt.length] = listaLS[i];
-        }
+        
+        //for (var i = 0; i < ol.length; i++) {
+        //  arrayTxt[arrayTxt.length] = listaLS[i];
+        //}
 
         var array = localStorage.setItem("items", JSON.stringify(arrayTxt));
         var par = JSON.parse(localStorage.getItem("items"));
         alert(par[0] + " - " + par[1] + " - " + par[2]);
-      }
-      function mostrarDatos(){
-
       }
       // Ejemplo de localStorage (add, view):
       function hola(){
