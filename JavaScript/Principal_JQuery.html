@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Add Elements in a List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style type = "text/css">
+      #list {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <!---->
+    <!--Elementos de la pagina-->
+    <!--Lista con varios elementos de ejemplo-->
+    <ol id = "list">
+
+    </ol>
+    <!--Input para introducir texto (no le pongas un nombre[name=...], ponle un id[id=...])-->
+    <input type="text" id="datos"><br>
+    <!--Boton con metodo de la funcion llamada-->
+    <button onclick="addElem()">Add element</button>
+
+    <!-- Funciones de la pagina -->
+    <script type="text/javascript">
+
+      var id = localStorage.length+1;
+      localStorage.setItem("0", "Primer elemento");
+      localStorage.setItem("1", "Segundo elemento");
+      for (var i = 0; i < localStorage.length; i++){
+        var liLocal = localStorage.getItem(localStorage.key(i));
+        var elementos = $("<li>" + liLocal + " <button>Eliminar</button></li>");
+        $("#list").append(elementos);
+      }
+
+      function addElem(){
+        var lista = document.getElementById("list");
+				var elemento = document.createElement("li");
+				var datos = document.getElementById("datos").value;
+				localStorage.setItem(id, datos);
+				id++;
+				var lista = $("#list");
+				var elemento = $("<li>" + datos + " <button>Eliminar</button></li>");
+				$("#list").append(elemento);
+      }
+
+      $('ol').on('click','button', function(){
+				var txt = $(this).closest("li").text();
+				var substr = txt.substr(0, txt.length-9);
+				var keys = Object.keys(localStorage);
+				console.log(keys);
+				for (var i = 0; i < localStorage.length; i++){
+					var texto = localStorage.getItem(localStorage.key(i));
+					if (texto == substr){
+						localStorage.removeItem(keys[i]);
+					}
+				}
+				$(this).closest("li").remove();
+				console.log(substr);
+			});
+    </script>
+
+    <!--https://deideaaapp.org/uso-del-localstorage-utilizando-html5-css3-jquery-e-ionic/-->
+
+  </body>
+</html>
